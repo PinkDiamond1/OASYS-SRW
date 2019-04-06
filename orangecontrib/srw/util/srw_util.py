@@ -180,8 +180,6 @@ class SRWPlot:
             if not xtitle is None: self.plot_canvas.setGraphXLabel(xtitle)
             if not ytitle is None: self.plot_canvas.setGraphYLabel(ytitle)
             if not title is None: self.plot_canvas.setGraphTitle(title)
-            self.plot_canvas.setDrawModeEnabled(True, 'rectangle')
-            self.plot_canvas.setZoomModeEnabled(True)
 
             if ticket['fwhm'] == None: ticket['fwhm'] = 0.0
 
@@ -492,7 +490,7 @@ class ShowErrorProfileDialog(QDialog):
 
             x_to_plot, y_to_plot = numpy.meshgrid(x_coords, y_coords)
 
-            axis.plot_surface(x_to_plot, y_to_plot, (z_values*parent.workspace_units_to_m*1e9).T,
+            axis.plot_surface(x_to_plot, y_to_plot, (z_values*1e9).T,
                               rstride=1, cstride=1, cmap=cm.autumn, linewidth=0.5, antialiased=True)
 
             sloperms = profiles_simulation.slopes(z_values, x_coords, y_coords, return_only_rms=1)
@@ -530,8 +528,6 @@ class ShowErrorProfileDialog(QDialog):
             figure_canvas.setGraphXLabel("X [m]")
             figure_canvas.setGraphYLabel("Height Error [nm]")
             figure_canvas.setGraphTitle("Height Error Profile")
-            figure_canvas.setDrawModeEnabled(True, 'rectangle')
-            figure_canvas.setZoomModeEnabled(True)
 
             figure_canvas.replot()
 
