@@ -41,7 +41,7 @@ SETUP_REQUIRES = (
 
 INSTALL_REQUIRES = (
     'oasys1>=1.1.41',
-    'vinyl-srw>=1.0.1'
+    'vinyl-srw>=1.0.1',
     'wofrysrw>=1.0.28'
 )
 
